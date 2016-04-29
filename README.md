@@ -2,7 +2,7 @@
 
 # RailsPivotTableJs
 
-The `rails_pivot_table_js` gem provides a helper to display a pivot_table using the open source pivot_table.js (http://nicolas.kruchten.com/pivottable/examples/)
+The `rails_pivot_table_js` is a Rails gem that provides a helper to display a PivotTable.js (http://nicolas.kruchten.com/pivottable/examples/) in your Rails application
 
 ## Features
 * Encaplsulates all pivottable.js scripts and css
