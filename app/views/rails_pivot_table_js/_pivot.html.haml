@@ -1,0 +1,61 @@
+= javascript_include_tag 'https://www.google.com/jsapi'
+= javascript_include_tag 'rails_pivot_table_js/application'
+= stylesheet_link_tag 'rails_pivot_table_js/application'
+
+#pivotgrid
+
+:javascript
+  function setCookie(key, value) {
+    var expires = new Date();
+    expires.setTime(expires.getTime() + (180 * 24 * 60 * 60 * 1000));
+    document.cookie = key + '=' + value + ';expires=' + expires.toUTCString();
+  }
+
+  function getCookie(key) {
+        var keyValue = document.cookie.match('(^|;) ?' + key + '=([^;]*)(;|$)');
+        return keyValue ? keyValue[2] : null;
+  }
+
+  function pivotSaveConfig(config) {
+    var config_copy = JSON.parse(JSON.stringify(config));
+    //delete some values which are functions
+    delete config_copy["aggregators"];
+    delete config_copy["renderers"];
+    //delete some bulky default values
+    delete config_copy["rendererOptions"];
+    delete config_copy["localeStrings"];
+    setCookie("pivot_config",JSON.stringify(config_copy));
+  }
+
+
+
+  $(function(){
+
+    var entregas = #{pivot_data};
+
+    //Suporte aos gráficos
+    //google.load("visualization", "1", {packages:["corechart", "charteditor"]});
+    var default_config = #{pivot_columns.to_json};
+    var last_config = JSON.parse(getCookie("taxtime_pivot_config"));
+    var config = last_config || default_config;
+    config['onRefresh'] = pivotSaveConfig;
+
+    var nrecoPivotExt = new NRecoPivotTableExtensions();
+
+    var stdRendererNames = ["Table","Table Barchart","Heatmap","Row Heatmap","Col Heatmap"];
+    var wrappedRenderers = $.extend( {}, $.pivotUtilities.renderers);
+    $.each(stdRendererNames, function() {
+      var rName = this;
+      wrappedRenderers[rName] = nrecoPivotExt.wrapTableRenderer(wrappedRenderers[rName]);
+    });
+    config['renderers'] = wrappedRenderers
+    jQuery("#pivotgrid").pivotUI(
+        entregas,
+        config,
+        false,
+        'pt'
+      );
+  });
+
+
+
