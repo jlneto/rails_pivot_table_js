@@ -10,4 +10,8 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require_tree .
+//= require rails_pivot_table_js/pivot
+//= require rails_pivot_table_js/nrecopivottableext.js
+//= require rails_pivot_table_js/gchart_renderers
+//= require rails_pivot_table_js/d3_renderers
+//= require rails_pivot_table_js/pivot.pt

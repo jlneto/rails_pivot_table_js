@@ -29,14 +29,14 @@
 
 
 
-  $(function(){
+  $(document).ready(function(){
 
     var entregas = #{pivot_data};
 
     //Suporte aos gráficos
     //google.load("visualization", "1", {packages:["corechart", "charteditor"]});
     var default_config = #{pivot_columns.to_json};
-    var last_config = JSON.parse(getCookie("taxtime_pivot_config"));
+    var last_config = JSON.parse(getCookie("pivot_config"));
     var config = last_config || default_config;
     config['onRefresh'] = pivotSaveConfig;
 
