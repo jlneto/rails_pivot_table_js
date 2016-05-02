@@ -8,7 +8,7 @@ PivotTable.js is Javascript Pivot Table (aka Pivot Grid, Pivot Chart, Cross-Tab)
 ## Features
 * Encaplsulates all pivottable.js scripts and css
 * provide a helper to display the pivot_table
-* TODO: Saved Configs, scoped by contexts, to persist pivot configurations for tlater retrieval
+* TODO: Saved Configs, scoped by contexts, to persist pivot configurations for later retrieval
 
 ## Installation
 
@@ -28,7 +28,6 @@ Or install it yourself as:
     $ gem install rails_pivot_table_js
 
 
-For while we don't need to change this file.
 
 ## Usage
 
@@ -73,8 +72,7 @@ All done! Enjoy the pivot table!
 
 ## i18n Support
 
-This gem was built using i18n translation supports, and has bult-in support for English (en) and Brazilian Portuguese (pt-BR). If you want to translate to your specific language, add a new locale file in your `config/locales` and translate the values to your language. You can get one of the locales of this project to make it easier to translate to your language.
-
+translation to portuguese is provided by the pivot.pt.js
 
 ## Contributing
 
