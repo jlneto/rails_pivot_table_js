@@ -2,7 +2,8 @@
 
 # RailsPivotTableJs
 
-The `rails_pivot_table_js` is a Rails gem that provides a helper to display a PivotTable.js (http://nicolas.kruchten.com/pivottable/examples/) in your Rails application
+The `rails_pivot_table_js` is a Rails gem that provides a helper to display a PivotTable.js (http://nicolas.kruchten.com/pivottable/examples/) in your Rails application.
+PivotTable.js is Javascript Pivot Table (aka Pivot Grid, Pivot Chart, Cross-Tab) implementation with drag'n'drop and many other functionalities.
 
 ## Features
 * Encaplsulates all pivottable.js scripts and css
